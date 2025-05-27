@@ -472,6 +472,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkTurquoise;
             ClientSize = new Size(1393, 938);
             Controls.Add(panel1);
             Controls.Add(lblUsuario);
