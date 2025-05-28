@@ -239,6 +239,7 @@
             txt_reg_code.Name = "txt_reg_code";
             txt_reg_code.Size = new Size(329, 23);
             txt_reg_code.TabIndex = 67;
+            txt_reg_code.KeyPress += txt_reg_code_KeyPress_1;
             // 
             // label6
             // 

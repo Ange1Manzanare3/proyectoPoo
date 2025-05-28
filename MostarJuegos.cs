@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace Proyecto_finalPOO
 {
@@ -20,13 +20,13 @@ namespace Proyecto_finalPOO
         }
         public void agregar_pantalla()
         {
-            using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();
 
                 string consulta = "INSERT INTO pantalla (MostrarJuego1, MostrarJuego2, MostrarJuego3) VALUES (@Juego1, @Juego2, @Juego3)";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@Juego1", Juego1);
                     cmd.Parameters.AddWithValue("@Juego2", Juego2);

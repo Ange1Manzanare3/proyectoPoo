@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace Proyecto_finalPOO
 {
@@ -21,84 +22,31 @@ namespace Proyecto_finalPOO
         //    this.ruta = nueva_ruta;
         //    this.id = nueva_id;
         //}
-        public void obtenerNombreJuego(int id)
+        public void obtenerDatosJuego(int id)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (var conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
-                string consulta = "SELECT NombreJuego FROM pantalla WHERE ID = @id";
+                string consulta = @"SELECT nombrejuego, precio, visible, imagen, ejecutable FROM pantalla WHERE id = @id";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            nombreJuego = reader.GetString("NombreJuego");
-                        }
-                    }
-                }
-            }
-        }
-        public void obtenerPrecioJuego(int id)
-        {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
-            {
-                conexion.Open();
-                string consulta = "SELECT Precio FROM pantalla WHERE ID = @id";
+                            nombreJuego = reader["nombrejuego"]?.ToString() ?? string.Empty;
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
+                            if (!reader.IsDBNull(reader.GetOrdinal("precio")))
+                                precio = Convert.ToInt32(reader["precio"]);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            precio = reader.GetInt16("Precio");
-                        }
-                    }
-                }
-            }
-        }
-        public void obtenerGruposVisibles(int id)
-        {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
-            {
-                conexion.Open();
-                string consulta = "SELECT Visible FROM pantalla WHERE ID = @id";
+                            if (!reader.IsDBNull(reader.GetOrdinal("visible")))
+                                visible = Convert.ToBoolean(reader["visible"]);
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            visible = reader.GetBoolean("Visible");
-                        }
-                    }
-                }
-            }
-        }
-        public void obtenerEJecuciones(int id)
-        {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
-            {
-                conexion.Open();
-                string consulta = "SELECT Imagen, Ejecucion FROM pantalla WHERE ID = @id";
-
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            rutaImagen = reader.GetString("Imagen");
-                            rutaEjecucion = reader.GetString("Ejecucion");
+                            rutaImagen = reader["imagen"]?.ToString() ?? string.Empty;
+                            rutaEjecucion = reader["ejecutable"]?.ToString() ?? string.Empty;
                         }
                     }
                 }

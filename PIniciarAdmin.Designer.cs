@@ -197,6 +197,7 @@
             txt_codigo.Name = "txt_codigo";
             txt_codigo.Size = new Size(278, 20);
             txt_codigo.TabIndex = 57;
+            txt_codigo.KeyPress += txt_codigo_KeyPress;
             // 
             // label4
             // 

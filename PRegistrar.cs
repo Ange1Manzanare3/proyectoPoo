@@ -1,5 +1,5 @@
 using usuario_iniciar;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using Microsoft.VisualBasic.Logging;
 using System.Linq;
 
@@ -8,7 +8,7 @@ namespace Proyecto_finalPOO
 {
     public partial class PRegistrar : Form
     {
-        string ruta = "Server=sql5.freesqldatabase.com;Database=sql5779968;User ID=sql5779968;Password=vwYgj6Syxs;Port=3306;";
+        string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         private Correo correito = new Correo();
 
         public PRegistrar()

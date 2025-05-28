@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Proyecto_finalPOO
 {
-    //oh no hermano
     class Correo
     {
         public bool ValidarCorreo(string correo)

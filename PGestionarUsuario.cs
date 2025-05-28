@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Proyecto_finalPOO
@@ -15,7 +15,7 @@ namespace Proyecto_finalPOO
 
     public partial class PGestionarUsuario : Form
     {
-        string ruta = "Server=sql5.freesqldatabase.com;Database=sql5779968;User ID=sql5779968;Password=vwYgj6Syxs;Port=3306;";
+        string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         private Correo correito = new Correo();
 
 
@@ -29,20 +29,22 @@ namespace Proyecto_finalPOO
             txt_contraseña.Text = string.Empty;
             txt_correo.Text = string.Empty;
             txt_Nombre.Text = string.Empty;
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            txt_credito.Text = string.Empty;
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
                 string consulta = "SELECT usuario, codigo FROM usuarios ORDER BY ID";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        int codigo = reader.GetInt16("codigo");
+                        int codigo = Convert.ToInt32(reader["codigo"]);
                         if (codigo != 777)
                         {
-                            string NombreUsuario = reader.GetString("usuario");
+                            string NombreUsuario = reader["usuario"].ToString();
                             listBox1.Items.Add(NombreUsuario);
                         }
                     }
@@ -51,27 +53,25 @@ namespace Proyecto_finalPOO
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string nombreUsuario = listBox1.SelectedItem.ToString();
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            string usuarioSeleccionado = listBox1.SelectedItem.ToString();
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
-                string consulta = "SELECT correo, contrasena, credito FROM usuarios WHERE usuario = @usuario";
+                string consulta = "SELECT correo, contrasena, credito, usuario FROM usuarios WHERE usuario = @usuario";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@usuario", nombreUsuario);
-                    txt_Nombre.Text = nombreUsuario;
+                    cmd.Parameters.AddWithValue("@usuario", usuarioSeleccionado);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            string correo_existente = reader.GetString("correo");
-                            txt_correo.Text = correo_existente;
-                            string contraseña_existente = reader.GetString("contrasena");
-                            txt_contraseña.Text = contraseña_existente;
-                            int credito_existente = reader.GetInt16("credito");
-                            txt_credito.Text = credito_existente.ToString();
+                            txt_Nombre.Text = reader.GetString("usuario");
+                            txt_correo.Text = reader.GetString("correo");
+                            txt_contraseña.Text = reader.GetString("contrasena");
+                            txt_credito.Text = reader.GetInt32("credito").ToString();
                         }
                     }
                 }
@@ -80,7 +80,9 @@ namespace Proyecto_finalPOO
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            string usuario = txt_Nombre.Text.Trim(), correo = txt_correo.Text.Trim(), contraseña = txt_contraseña.Text.Trim(), credito = txt_credito.Text;
+            string usuarioAntiguo = listBox1.SelectedItem.ToString().Trim();
+            string nuevoUsuario = txt_Nombre.Text.Trim(), correo = txt_correo.Text.Trim(), contraseña = txt_contraseña.Text.Trim();
+            int credito = Convert.ToInt16(txt_credito.Text.Trim());
             if (string.IsNullOrWhiteSpace(contraseña) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(txt_credito.Text))
             {
                 MessageBox.Show("Por favor, completa todos los campos.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -111,36 +113,55 @@ namespace Proyecto_finalPOO
                     MessageBoxIcon.Warning);
                 return;
             }
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE usuarios SET correo = @correo, contrasena = @contrasena, credito = @credito WHERE usuario = @usuario";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                // Actualizar datos del usuario en tabla usuarios
+                string consultaUsuarios = "UPDATE usuarios SET correo = @correo, contrasena = @contrasena, credito = @credito, usuario = @nuevoUsuario WHERE usuario = @usuarioAntiguo";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaUsuarios, conexion))
                 {
                     cmd.Parameters.AddWithValue("@correo", correo);
                     cmd.Parameters.AddWithValue("@contrasena", contraseña);
-                    cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.Parameters.AddWithValue("@credito", credito);
+                    cmd.Parameters.AddWithValue("@nuevoUsuario", nuevoUsuario);
+                    cmd.Parameters.AddWithValue("@usuarioAntiguo", usuarioAntiguo);
                     cmd.ExecuteNonQuery();
                 }
-            }
-            MessageBox.Show("Cambio realizado con exito", "Ejecutado con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
+                // Actualizar el usuario en tabla juegos para mantener coherencia
+                string consultaJuegos = "UPDATE juegos SET usuario = @nuevoUsuario WHERE usuario = @usuarioAntiguo";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaJuegos, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@nuevoUsuario", nuevoUsuario);
+                    cmd.Parameters.AddWithValue("@usuarioAntiguo", usuarioAntiguo);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Cambio realizado con éxito", "Ejecutado con éxito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            listBox1.Items.Clear();
+            imprimirNombres();
         }
 
         private void btn_borrar_Click(object sender, EventArgs e)
         {
             string usuario = txt_Nombre.Text.Trim();
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
                 string consulta = "DELETE FROM usuarios WHERE usuario = @usuario";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Usuario borrada con exito", "Eliminacion con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                string consultaa = "DELETE FROM juegos WHERE usuario = @usuario";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaa, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.ExecuteNonQuery();
                 }
             }
             listBox1.Items.Clear();
