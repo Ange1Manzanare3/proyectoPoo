@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {}
+    "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {
+    "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
+        "projectUniqueName": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
         "projectName": "Proyecto_finalPOO",
-        "projectPath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
-        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\obj\\",
+        "projectPath": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
+        "packagesPath": "C:\\Users\\sebas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sebas\\Source\\Repos\\proyectoPoo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sebas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
