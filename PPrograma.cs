@@ -29,7 +29,74 @@ namespace Proyecto_finalPOO
         {
             InitializeComponent();
             this.Load += PProgramaAdmin_Load;
+            CargarBalanceUsuario();
         }
+        private void CargarBalanceUsuario()
+        {
+            string usuario = UsuarioActivo.nombre.ToString();
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+            {
+                conexion.Open();
+                string consultaSaldo = "SELECT credito FROM usuarios WHERE usuario = @usuario";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaSaldo, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            lblBalance.Text = reader.GetDecimal(0).ToString("C");
+                        }
+                    }
+                }
+            }
+        }
+        private void DescontarBalance(decimal precioJuego)
+{
+    string usuario = UsuarioActivo.nombre.ToString();
+    decimal saldoActual = 0;
+    decimal nuevoSaldo = 0;
+
+    using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+    {
+        conexion.Open();
+        string consultaSaldo = "SELECT credito FROM usuarios WHERE usuario = @usuario";
+
+        using (NpgsqlCommand cmd = new NpgsqlCommand(consultaSaldo, conexion))
+        {
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            using (NpgsqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    saldoActual = reader.GetDecimal(0);
+                }
+            }
+        }
+
+        // Verificar saldo suficiente
+        if (saldoActual >= precioJuego)
+        {
+            nuevoSaldo = saldoActual - precioJuego;
+            string consultaActualizarSaldo = "UPDATE usuarios SET credito = @nuevoSaldo WHERE usuario = @usuario";
+
+            using (NpgsqlCommand cmd = new NpgsqlCommand(consultaActualizarSaldo, conexion))
+            {
+                cmd.Parameters.AddWithValue("@nuevoSaldo", nuevoSaldo);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.ExecuteNonQuery();
+            }
+
+            lblBalance.Text = nuevoSaldo.ToString("C"); // ✅ Se muestra el saldo actualizado
+        }
+        else
+        {
+            MessageBox.Show("Saldo insuficiente para la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+}
 
         private async void PProgramaAdmin_Load(object sender, EventArgs e)
         {
@@ -116,6 +183,8 @@ namespace Proyecto_finalPOO
         {
             btn_Jugar_Loteria.Visible = true;
             // nombre se usuario, nombre juego, obtener
+            decimal precioJuego = 50.00m;
+            DescontarBalance(precioJuego);
             string usuario = UsuarioActivo.nombre.ToString(), nombre_juego = "Loteria";
             lblUsuario.Text = usuario;
             //obtenerJuego obtenerJuego = new obtenerJuego(nombre_juego, usuario);
@@ -123,7 +192,8 @@ namespace Proyecto_finalPOO
 
         private void btn_obtener_preguntas_Click(object sender, EventArgs e)
         {
-
+            decimal precioJuego = 50.00m;
+            DescontarBalance(precioJuego);
         }
 
         private void btn_jugar_musica_Click(object sender, EventArgs e)
@@ -134,12 +204,59 @@ namespace Proyecto_finalPOO
         private void button1_Click(object sender, EventArgs e)
         {
             btn_jugar_musica.Visible = true;
+            decimal precioJuego = 50.00m;
+            DescontarBalance(precioJuego);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             Process.Start("D:\\POO\\Unidad 3\\Proyecto_finalPOO\\bin\\Debug\\net8.0-windows\\Juegos\\Debug\\ProyectoFinalQuiz.exe");
 
+        }
+        private void btnBalance_Click(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(txtBalance.Text.Trim(), out decimal cantidadAgregar) || cantidadAgregar <= 0)
+            {
+                MessageBox.Show("Ingresa una cantidad válida de crédito.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string usuario = UsuarioActivo.nombre.ToString();
+            decimal saldoActual = 0;
+            decimal nuevoSaldo = 0;
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+            {
+                conexion.Open();
+
+                // Obtener saldo actual
+                string consultaSaldo = "SELECT credito FROM usuarios WHERE usuario = @usuario";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaSaldo, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            saldoActual = reader.GetDecimal(0);
+                        }
+                    }
+                }
+
+                // Actualizar saldo en la base de datos
+                nuevoSaldo = saldoActual + cantidadAgregar;
+                string consultaActualizarSaldo = "UPDATE usuarios SET credito = @nuevoSaldo WHERE usuario = @usuario";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaActualizarSaldo, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@nuevoSaldo", nuevoSaldo);
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            // REFLEJAR CAMBIO EN LA INTERFAZ
+            lblBalance.Text = nuevoSaldo.ToString("C"); // Actualiza el label inmediatamente
+            MessageBox.Show("Saldo actualizado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

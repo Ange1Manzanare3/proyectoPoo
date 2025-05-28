@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {}
+    "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {
+    "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
+        "projectUniqueName": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
         "projectName": "Proyecto_finalPOO",
-        "projectPath": "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
+        "projectPath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
         "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\lenovo\\Source\\Repos\\proyectoPoo\\obj\\",
         "projectStyle": "PackageReference",
@@ -54,6 +54,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.3.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[9.0.3, )"
             }
           },
           "imports": [
