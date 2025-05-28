@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\sebas\\source\\repos\\proyectoPoo\\pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\sebas\\source\\repos\\proyectoPoo\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Document",
@@ -45,10 +45,6 @@
               "WhenOpened": "2025-05-28T04:02:50.205Z",
               "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
@@ -95,18 +91,23 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
+<<<<<<< HEAD
               "Title": "Carrito.cs",
               "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeDocumentMoniker": "Carrito.cs",
               "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeToolTip": "Carrito.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAuwEoAAAAAAAAAAAAAAA==",
+=======
+              "Title": "RegistarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\RegistarUsuario.cs",
+              "RelativeDocumentMoniker": "RegistarUsuario.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\RegistarUsuario.cs",
+              "RelativeToolTip": "RegistarUsuario.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAA0wAAAAAAAAAAAAAAAAA==",
+>>>>>>> 7267653 (cambios mios xd)
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T14:36:05.99Z",
               "EditorCaption": ""
@@ -114,14 +115,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
               "Title": "Carrito.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeDocumentMoniker": "Carrito.cs",
               "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs [Dise\u00F1o]",
               "RelativeToolTip": "Carrito.cs [Dise\u00F1o]",
+=======
+              "Title": "PPrograma.cs",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs",
+              "RelativeDocumentMoniker": "PPrograma.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs",
+              "RelativeToolTip": "PPrograma.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAgwCQAAAAAAAAAAAAAAA==",
+>>>>>>> 7267653 (cambios mios xd)
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T13:57:14.931Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-28T13:57:14.931Z"
             },
             {
               "$type": "Document",
@@ -136,6 +145,20 @@
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
+<<<<<<< HEAD
+=======
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PRegistrar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PRegistrar.cs",
+              "RelativeDocumentMoniker": "PRegistrar.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PRegistrar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PRegistrar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T05:18:34.179Z"
+            },
+            {
+>>>>>>> 7267653 (cambios mios xd)
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "PRegistrarAdmin.cs [Dise\u00F1o]",
@@ -144,8 +167,7 @@
               "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs [Dise\u00F1o]",
               "RelativeToolTip": "PRegistrarAdmin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T04:00:08.72Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-05-28T04:00:08.72Z"
             }
           ]
         },
