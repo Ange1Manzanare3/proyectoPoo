@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using Npgsql;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_finalPOO
 {
     public partial class PProgramaAdmin : Form
     {
-        string ruta = "Server=sql5.freesqldatabase.com;Database=sql5779968;User ID=sql5779968;Password=vwYgj6Syxs;Port=3306;";
+        string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         private PRegistrar formPrincipal;
         int id;
 
@@ -22,60 +22,106 @@ namespace Proyecto_finalPOO
         {
             InitializeComponent();
             this.formPrincipal = formPrincipal;
-            this.Load += PProgramaAdmin_Load;
+            //checkSeleccionados();
             lbl_usuario_activo.Text = UsuarioActivo.nombre;
+            this.Shown += PProgramaAdmin_Shown;
+
         }
 
-        public PProgramaAdmin()
+        ////public PProgramaAdmin()
+        ////{
+        ////    InitializeComponent();
+        ////    this.Shown += PProgramaAdmin_Shown;
+
+        ////}
+
+        private async void PProgramaAdmin_Shown(object sender, EventArgs e)
         {
-            InitializeComponent();
-            this.Load += PProgramaAdmin_Load;
+            var resultados = await Task.Run(() => ProcesarSeleccionados());
+            ActualizarSeleccionados(resultados);
         }
 
-        private void PProgramaAdmin_Load(object sender, EventArgs e)
+        // Clase para guardar el resultado por ítem
+        private class SeleccionItem
         {
-            checkSeleccionados();
+            public bool Visible { get; set; }
+            public string NombreJuego { get; set; }
         }
 
-        public void checkSeleccionados()
+        private List<SeleccionItem> ProcesarSeleccionados()
         {
-            List<CheckBox> checkBoxes = new List<CheckBox>
-            {
-                checkBox1,
-                checkBox2,
-                checkBox3,
-                checkBox4,
-                checkBox5,
-                checkBox6
-            };
-            List<GroupBox> groupBoxes = new List<GroupBox>
-            {
-                groupBox1,
-                groupBox2,
-                groupBox3,
-                groupBox4,
-                groupBox5,
-                groupBox6
-            };
+            List<SeleccionItem> resultados = new List<SeleccionItem>();
 
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
-                string consulta = "SELECT Visible, NombreJuego FROM pantalla ORDER BY ID";
+                string consulta = "SELECT visible, nombrejuego FROM pantalla ORDER BY id";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    int i = 0;
-                    while (reader.Read())
+                    // OJO: aquí no usas el parámetro "@id" en la consulta, no es necesario
+                    // cmd.Parameters.AddWithValue("@id", id);
+
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        bool visible = reader.GetBoolean("Visible");
-                        string NombreJuego = reader.GetString("NombreJuego");
-                        checkBoxes[i].Checked = visible;
-                        groupBoxes[i].Text = NombreJuego;
-                        i++;
+                        while (reader.Read())
+                        {
+                            bool visible = false;
+                            if (!reader.IsDBNull(reader.GetOrdinal("visible")))
+                            {
+                                visible = reader.GetBoolean(reader.GetOrdinal("visible"));
+                            }
+
+                            string nombreJuego = string.Empty;
+                            if (!reader.IsDBNull(reader.GetOrdinal("nombrejuego")))
+                            {
+                                nombreJuego = reader.GetString(reader.GetOrdinal("nombrejuego"));
+                            }
+
+                            resultados.Add(new SeleccionItem
+                            {
+                                Visible = visible,
+                                NombreJuego = nombreJuego
+                            });
+                        }
                     }
                 }
+            }
+
+            return resultados;
+        }
+
+        private void ActualizarSeleccionados(List<SeleccionItem> resultados)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(() => ActualizarSeleccionados(resultados));
+                return;
+            }
+
+            List<CheckBox> checkBoxes = new List<CheckBox>
+    {
+        checkBox1,
+        checkBox2,
+        checkBox3,
+        checkBox4,
+        checkBox5,
+        checkBox6
+    };
+            List<GroupBox> groupBoxes = new List<GroupBox>
+    {
+        groupBox1,
+        groupBox2,
+        groupBox3,
+        groupBox4,
+        groupBox5,
+        groupBox6
+    };
+
+            for (int i = 0; i < resultados.Count && i < checkBoxes.Count && i < groupBoxes.Count; i++)
+            {
+                checkBoxes[i].Checked = resultados[i].Visible;
+                groupBoxes[i].Text = resultados[i].NombreJuego;
             }
         }
 
@@ -87,12 +133,12 @@ namespace Proyecto_finalPOO
 
         public void registrarCheck(bool visible, int id)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE pantalla SET Visible = @visible WHERE id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                string consulta = "UPDATE pantalla SET visible = @visible WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@visible", visible);
                     cmd.Parameters.AddWithValue("@id", id);
@@ -145,14 +191,14 @@ namespace Proyecto_finalPOO
 
         public void registrarCambioNombre(int id, string nombreJuego)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE pantalla SET NombreJuego = @NombreJuego WHERE id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                string consulta = "UPDATE pantalla SET nombrejuego = @nombrejuego WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@NombreJuego", nombreJuego);
+                    cmd.Parameters.AddWithValue("@nombrejuego", nombreJuego);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cambio realizado con exito", "Ejecutado con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -161,14 +207,14 @@ namespace Proyecto_finalPOO
         }
         public void registrarCambioPrecio(int id, int precioJuego)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE pantalla SET Precio = @Precio WHERE id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                string consulta = "UPDATE pantalla SET precio = @precio WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@Precio", precioJuego);
+                    cmd.Parameters.AddWithValue("@precio", precioJuego);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cambio realizado con exito", "Ejecutado con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -177,14 +223,14 @@ namespace Proyecto_finalPOO
         }
         public void registrarCambioPortada(int id, string rutaPortada)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE pantalla SET Imagen = @Imagen WHERE id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                string consulta = "UPDATE pantalla SET imagen = @imagen WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@Imagen", rutaPortada);
+                    cmd.Parameters.AddWithValue("@imagen", rutaPortada);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cambio realizado con exito", "Ejecutado con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -193,14 +239,14 @@ namespace Proyecto_finalPOO
         }
         public void registrarCambioEjecucion(int id, string rutaEjecucion)
         {
-            using (MySqlConnection conexion = new MySqlConnection(ruta))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
 
-                string consulta = "UPDATE pantalla SET Ejecucion = @Ejecucion WHERE id = @id";
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                string consulta = "UPDATE pantalla SET ejecutable = @ejecutable WHERE id = @id";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@Ejecucion", rutaEjecucion);
+                    cmd.Parameters.AddWithValue("@ejecutable", rutaEjecucion);
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cambio realizado con exito", "Ejecutado con exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

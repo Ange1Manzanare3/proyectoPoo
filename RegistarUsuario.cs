@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 
 namespace usuario_iniciar
@@ -30,23 +31,23 @@ namespace usuario_iniciar
         }
         private string ejecutarConsulta()
         {
-            using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();
                 string consulta = "SELECT usuario, correo FROM usuarios WHERE usuario = @usuario OR correo = @correo";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.Parameters.AddWithValue("@correo", correo);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         //significa que vas a recorrer todas las filas devueltas por una consulta SQL, una por una.
                         while (reader.Read())
                         {
-                            string usuario_existente = reader.GetString("usuario");
-                            string correo_existente = reader.GetString("correo");
+                            string usuario_existente = reader["usuario"].ToString();
+                            string correo_existente = reader["correo"].ToString();
 
                             if (usuario_existente == usuario && correo_existente == correo)
                                 return "Usuario y Correo ya existentes";
@@ -72,55 +73,44 @@ namespace usuario_iniciar
         }
         public void agregar_registro()
         {
-            using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();
 
-                /*
-                 * INSERT INTO usuarios (...): indica que vas a agregar una nueva fila a la tabla llamada usuarios.
-                 * (usuario, correo, contraseña): son las columnas donde vas a insertar datos.
-                VALUES (@usuario, @correo, @contraseña): son los valores que vas a insertar, usando parámetros.
-                 */
-                string consulta = "INSERT INTO usuarios (usuario, correo, contrasena) VALUES (@usuario, @correo, @contrasena)";
+                string consulta = "INSERT INTO usuarios (usuario, correo, contrasena, credito) VALUES (@usuario, @correo, @contrasena, @credito)";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.Parameters.AddWithValue("@correo", correo);
                     cmd.Parameters.AddWithValue("@contrasena", contraseña);
-                    //se utiliza para ejecutar una consulta SQL que no devuelve datos (por ejemplo, INSERT, UPDATE, DELETE).
+                    cmd.Parameters.AddWithValue("@credito", 0);
                     cmd.ExecuteNonQuery();
                 }
                 string consultaJuegos = "INSERT INTO juegos (usuario) VALUES (@usuario)";
 
-                using (MySqlCommand cmd = new MySqlCommand(consultaJuegos, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consultaJuegos, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
-                    //se utiliza para ejecutar una consulta SQL que no devuelve datos (por ejemplo, INSERT, UPDATE, DELETE).
                     cmd.ExecuteNonQuery();
                 }
             }
         }
         public void agregar_registro(int codigo)
         {
-            using (MySqlConnection conexion = new MySqlConnection(cadenaConexion))
+            using (NpgsqlConnection conexion = new NpgsqlConnection(cadenaConexion))
             {
                 conexion.Open();
 
-                /*
-                 * INSERT INTO usuarios (...): indica que vas a agregar una nueva fila a la tabla llamada usuarios.
-                 * (usuario, correo, contraseña): son las columnas donde vas a insertar datos.
-                VALUES (@usuario, @correo, @contraseña): son los valores que vas a insertar, usando parámetros.
-                 */
+              
                 string consulta = "INSERT INTO usuarios (usuario, correo, contrasena, codigo) VALUES (@usuario, @correo, @contrasena, @codigo)";
 
-                using (MySqlCommand cmd = new MySqlCommand(consulta, conexion))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
                 {
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.Parameters.AddWithValue("@correo", correo);
                     cmd.Parameters.AddWithValue("@contrasena", contraseña);
                     cmd.Parameters.AddWithValue("@codigo", codigo);
-                    //se utiliza para ejecutar una consulta SQL que no devuelve datos (por ejemplo, INSERT, UPDATE, DELETE).
                     cmd.ExecuteNonQuery();
                 }
             }

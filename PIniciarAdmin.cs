@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using usuario_iniciar;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 
 namespace Proyecto_finalPOO
@@ -17,7 +17,7 @@ namespace Proyecto_finalPOO
     public partial class PIniciarAdmin : Form
     {
         private PRegistrar formPrincipal;
-        string ruta = "Server=sql5.freesqldatabase.com;Database=sql5779968;User ID=sql5779968;Password=vwYgj6Syxs;Port=3306;";
+        string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         public PIniciarAdmin(PRegistrar formPrincipal)
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace Proyecto_finalPOO
             IniciarUsuario inicio = new IniciarUsuario(usuario, contraseña, correo, ruta);
             string mensaje = inicio.Comprobar_Inicio(codigo);
             lbl_usuario.Text = mensaje;
-            if (mensaje == "Inicio de sesion exitoso")
+            if (mensaje == "Inicio de sesión exitoso")
             {
                 string nombre_usuario = inicio.obtener_usuario();
                 UsuarioActivo.nombre = nombre_usuario;
@@ -73,6 +73,15 @@ namespace Proyecto_finalPOO
         private void PIniciarAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             formPrincipal.Show();
+        }
+
+        private void txt_codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y tecla de retroceso
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
