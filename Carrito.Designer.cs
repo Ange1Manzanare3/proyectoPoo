@@ -42,20 +42,21 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(29, 27);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(39, 28);
             label1.Name = "label1";
-            label1.Size = new Size(294, 41);
+            label1.Size = new Size(364, 50);
             label1.TabIndex = 0;
             label1.Text = "Carrito De Compras";
             // 
             // btnQuitar
             // 
             btnQuitar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnQuitar.Location = new Point(60, 218);
-            btnQuitar.Margin = new Padding(3, 2, 3, 2);
+            btnQuitar.Location = new Point(69, 291);
             btnQuitar.Name = "btnQuitar";
-            btnQuitar.Size = new Size(116, 42);
+            btnQuitar.Size = new Size(133, 56);
             btnQuitar.TabIndex = 1;
             btnQuitar.Text = "Quitar";
             btnQuitar.UseVisualStyleBackColor = true;
@@ -64,10 +65,9 @@
             // btnVaciar
             // 
             btnVaciar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnVaciar.Location = new Point(236, 218);
-            btnVaciar.Margin = new Padding(3, 2, 3, 2);
+            btnVaciar.Location = new Point(270, 291);
             btnVaciar.Name = "btnVaciar";
-            btnVaciar.Size = new Size(116, 42);
+            btnVaciar.Size = new Size(133, 56);
             btnVaciar.TabIndex = 2;
             btnVaciar.Text = "Vaciar";
             btnVaciar.UseVisualStyleBackColor = true;
@@ -76,10 +76,9 @@
             // btnComprar
             // 
             btnComprar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnComprar.Location = new Point(410, 218);
-            btnComprar.Margin = new Padding(3, 2, 3, 2);
+            btnComprar.Location = new Point(469, 291);
             btnComprar.Name = "btnComprar";
-            btnComprar.Size = new Size(116, 42);
+            btnComprar.Size = new Size(133, 56);
             btnComprar.TabIndex = 3;
             btnComprar.Text = "Comprar";
             btnComprar.UseVisualStyleBackColor = true;
@@ -88,34 +87,34 @@
             // listJuegos
             // 
             listJuegos.FormattingEnabled = true;
-            listJuegos.ItemHeight = 15;
-            listJuegos.Location = new Point(42, 95);
-            listJuegos.Margin = new Padding(3, 2, 3, 2);
+            listJuegos.Location = new Point(48, 127);
             listJuegos.Name = "listJuegos";
-            listJuegos.Size = new Size(509, 79);
+            listJuegos.Size = new Size(581, 104);
             listJuegos.TabIndex = 4;
             // 
             // lblCreditos
             // 
             lblCreditos.AutoSize = true;
-            lblCreditos.Location = new Point(488, 37);
+            lblCreditos.Location = new Point(558, 49);
             lblCreditos.Name = "lblCreditos";
-            lblCreditos.Size = new Size(38, 15);
+            lblCreditos.Size = new Size(50, 20);
             lblCreditos.TabIndex = 5;
             lblCreditos.Text = "label2";
             // 
             // txtBalanza
             // 
-            txtBalanza.Location = new Point(572, 37);
+            txtBalanza.Location = new Point(654, 49);
+            txtBalanza.Margin = new Padding(3, 4, 3, 4);
             txtBalanza.Name = "txtBalanza";
-            txtBalanza.Size = new Size(100, 23);
+            txtBalanza.Size = new Size(114, 27);
             txtBalanza.TabIndex = 6;
             // 
             // btnBalanza
             // 
-            btnBalanza.Location = new Point(696, 37);
+            btnBalanza.Location = new Point(795, 49);
+            btnBalanza.Margin = new Padding(3, 4, 3, 4);
             btnBalanza.Name = "btnBalanza";
-            btnBalanza.Size = new Size(91, 43);
+            btnBalanza.Size = new Size(104, 57);
             btnBalanza.TabIndex = 7;
             btnBalanza.Text = "Actualizar balanza";
             btnBalanza.UseVisualStyleBackColor = true;
@@ -124,17 +123,18 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(601, 9);
+            label3.Location = new Point(687, 12);
             label3.Name = "label3";
-            label3.Size = new Size(47, 15);
+            label3.Size = new Size(61, 20);
             label3.TabIndex = 8;
             label3.Text = "Balanza";
             // 
             // Carrito
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(799, 338);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(913, 451);
             Controls.Add(label3);
             Controls.Add(btnBalanza);
             Controls.Add(txtBalanza);
@@ -144,7 +144,6 @@
             Controls.Add(btnVaciar);
             Controls.Add(btnQuitar);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Carrito";
             Text = "Carrito";
             Load += Carrito_Load;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PPrograma));
             btn_Jugar_Loteria = new Button();
             lblUsuario = new Label();
             btn_Juego_preguntas = new Button();
@@ -169,6 +170,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1369, 874);
             panel1.TabIndex = 12;
+            panel1.Paint += panel1_Paint;
             // 
             // BtnVerCarrito
             // 
@@ -214,12 +216,14 @@
             // 
             // pictureBox6
             // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(19, 17);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(313, 232);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox6.TabIndex = 6;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // btn_agregar_Juego6
             // 
@@ -274,6 +278,7 @@
             // 
             // pictureBox4
             // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(6, 17);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(348, 219);
@@ -334,6 +339,7 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(25, 17);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(324, 232);
@@ -395,6 +401,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(19, 17);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(313, 232);
@@ -435,6 +442,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(6, 17);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(348, 219);
@@ -475,6 +483,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(17, 17);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(324, 232);

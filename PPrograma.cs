@@ -152,7 +152,7 @@ namespace Proyecto_finalPOO
             MessageBox.Show("Juego ´Quiz Cultura´ fue agregado al carrito");
 
 
-           
+
 
 
             btn_Juego_preguntas.Visible = true;
@@ -160,7 +160,10 @@ namespace Proyecto_finalPOO
 
 
 
-            Process.Start("Juegos\\ProyectoFinalQuiz\\ProyectoFinalQuiz\\bin\\Debug\\ProyectoFinalQuiz.exe");
+            Process.Start("Juegos\\debug\\ProyectoFinalQuiz.exe");
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -187,6 +190,16 @@ namespace Proyecto_finalPOO
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

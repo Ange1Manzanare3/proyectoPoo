@@ -7,6 +7,54 @@
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pgestionarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\sebas\\source\\repos\\proyectoPoo\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\nombrejuegoregistrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:nombrejuegoregistrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\obtenerjuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:obtenerjuego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\sebas\\source\\repos\\proyectoPoo\\pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:usuarioactivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\registarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:registarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\abrirarchivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:abrirarchivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\sebas\\source\\repos\\proyectopoo\\registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
       "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -21,6 +69,7 @@
     {
       "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+>>>>>>> 88a7c3ecf41865ac53a9e452b878d48982ed739e
     }
   ],
   "DocumentGroupContainers": [
@@ -30,6 +79,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
+          "SelectedChildIndex": 23,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PPrograma.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PPrograma.cs",
+              "RelativeDocumentMoniker": "PPrograma.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PPrograma.cs",
+              "RelativeToolTip": "PPrograma.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T04:02:50.205Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+=======
           "SelectedChildIndex": 16,
           "Children": [
             {
@@ -51,6 +117,7 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+>>>>>>> 88a7c3ecf41865ac53a9e452b878d48982ed739e
             },
             {
               "$type": "Bookmark",
@@ -85,6 +152,109 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PProgramaAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PProgramaAdmin.cs",
+              "RelativeDocumentMoniker": "PProgramaAdmin.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PProgramaAdmin.cs",
+              "RelativeToolTip": "PProgramaAdmin.cs",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAIwBgBAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:55:07.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AbrirArchivo.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\AbrirArchivo.cs",
+              "RelativeDocumentMoniker": "AbrirArchivo.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\AbrirArchivo.cs",
+              "RelativeToolTip": "AbrirArchivo.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwCAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:35:18.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioActivo.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\UsuarioActivo.cs",
+              "RelativeDocumentMoniker": "UsuarioActivo.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\UsuarioActivo.cs",
+              "RelativeToolTip": "UsuarioActivo.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:35:14.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegistarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\RegistarUsuario.cs",
+              "RelativeDocumentMoniker": "RegistarUsuario.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\RegistarUsuario.cs",
+              "RelativeToolTip": "RegistarUsuario.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:35:04.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Registro.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Registro.cs",
+              "RelativeDocumentMoniker": "Registro.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Registro.cs",
+              "RelativeToolTip": "Registro.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:35:03.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:35:02.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "obtenerJuego.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\obtenerJuego.cs",
+              "RelativeDocumentMoniker": "obtenerJuego.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\obtenerJuego.cs",
+              "RelativeToolTip": "obtenerJuego.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:34:59.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "nombreJuegoRegistrado.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\nombreJuegoRegistrado.cs",
+              "RelativeDocumentMoniker": "nombreJuegoRegistrado.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\nombreJuegoRegistrado.cs",
+              "RelativeToolTip": "nombreJuegoRegistrado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T16:26:11.739Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Carrito.cs",
@@ -92,7 +262,11 @@
               "RelativeDocumentMoniker": "Carrito.cs",
               "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeToolTip": "Carrito.cs",
+<<<<<<< HEAD
+              "ViewState": "AgIAAEcAAAAAAAAAAAAswDQAAAAJAAAAAAAAAA==",
+=======
               "ViewState": "AgIAAA4AAAAAAAAAAAAxwA0AAAAQAAAAAAAAAA==",
+>>>>>>> 88a7c3ecf41865ac53a9e452b878d48982ed739e
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T15:23:59.515Z",
               "EditorCaption": ""
@@ -106,7 +280,12 @@
               "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs [Dise\u00F1o]",
               "RelativeToolTip": "Carrito.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
+              "WhenOpened": "2025-05-28T13:57:14.931Z",
+              "EditorCaption": " [Dise\u00F1o]"
+=======
               "WhenOpened": "2025-05-28T15:24:08.907Z"
+>>>>>>> 88a7c3ecf41865ac53a9e452b878d48982ed739e
             },
             {
               "$type": "Document",
@@ -122,12 +301,21 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 7,
+              "Title": "PRegistrarAdmin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs",
+              "RelativeDocumentMoniker": "PRegistrarAdmin.cs",
+              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PRegistrarAdmin.cs [Dise\u00F1o]",
+=======
               "DocumentIndex": 0,
               "Title": "PGestionarUsuario.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PGestionarUsuario.cs",
               "RelativeDocumentMoniker": "PGestionarUsuario.cs",
               "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PGestionarUsuario.cs [Dise\u00F1o]",
               "RelativeToolTip": "PGestionarUsuario.cs [Dise\u00F1o]",
+>>>>>>> 88a7c3ecf41865ac53a9e452b878d48982ed739e
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T07:28:04.789Z",
               "EditorCaption": " [Dise\u00F1o]"
