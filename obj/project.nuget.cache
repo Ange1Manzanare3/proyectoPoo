@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4syUIfuZ56c=",
+  "dgSpecHash": "IpX0KKQLC0A=",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
   "expectedPackageFiles": [
@@ -37,15 +37,5 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\zstdsharp.port\\0.8.5\\zstdsharp.port.0.8.5.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "message": "Problema al leer el archivo de caché C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
-      "projectPath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Proyecto_finalPOO.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }

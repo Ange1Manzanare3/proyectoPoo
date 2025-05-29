@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\lenovo\\source\\repos\\proyectopoo\\pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\lenovo\\source\\repos\\proyectopoo\\pgestionarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pgestionarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -15,12 +19,8 @@
       "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:carrito.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pregistraradmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|c:\\users\\lenovo\\source\\repos\\proyectopoo\\pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprograma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2BE5C8F0-3D54-4E43-8BEC-65E66C47D2E7}|Proyecto_finalPOO.csproj|solutionrelative:pprogramaadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,10 +51,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -86,67 +82,66 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PPrograma.cs",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs",
-              "RelativeDocumentMoniker": "PPrograma.cs",
-              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs",
-              "RelativeToolTip": "PPrograma.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAA8wJcAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:23:58.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Carrito.cs",
               "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeDocumentMoniker": "Carrito.cs",
               "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeToolTip": "Carrito.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAuwEoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwA0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T15:23:59.515Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Carrito.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs",
               "RelativeDocumentMoniker": "Carrito.cs",
-              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\sebas\\source\\repos\\proyectoPoo\\Carrito.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\Carrito.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Carrito.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T15:24:08.907Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PPrograma.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs",
-              "RelativeDocumentMoniker": "PPrograma.cs",
-              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PPrograma.cs [Dise\u00F1o]",
-              "RelativeToolTip": "PPrograma.cs [Dise\u00F1o]",
+              "DocumentIndex": 1,
+              "Title": "PRegistrarAdmin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs",
+              "RelativeDocumentMoniker": "PRegistrarAdmin.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PRegistrarAdmin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:24:09.226Z",
+              "WhenOpened": "2025-05-29T07:27:56.076Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PRegistrarAdmin.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs",
-              "RelativeDocumentMoniker": "PRegistrarAdmin.cs",
-              "ToolTip": "C:\\Users\\sebas\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\sebas\\source\\repos\\proyectoPoo\\PRegistrarAdmin.cs [Dise\u00F1o]",
+              "DocumentIndex": 0,
+              "Title": "PGestionarUsuario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PGestionarUsuario.cs",
+              "RelativeDocumentMoniker": "PGestionarUsuario.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PGestionarUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PGestionarUsuario.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:24:09.255Z"
+              "WhenOpened": "2025-05-29T07:28:04.789Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PProgramaAdmin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PProgramaAdmin.cs",
+              "RelativeDocumentMoniker": "PProgramaAdmin.cs",
+              "ToolTip": "C:\\Users\\lenovo\\source\\repos\\proyectoPoo\\PProgramaAdmin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "PProgramaAdmin.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T07:28:16.184Z"
             }
           ]
         },

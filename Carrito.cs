@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Proyecto_finalPOO
 {
+    //papuprueba
     public partial class Carrito : Form
     {
+        private string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         public Carrito()
         {
             InitializeComponent();
@@ -21,6 +24,7 @@ namespace Proyecto_finalPOO
         private void Carrito_Load(object sender, EventArgs e)
         {
             ActualizarLista();
+            lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
         }
 
 
@@ -78,10 +82,89 @@ namespace Proyecto_finalPOO
                     total += precio;
                 }
             }
+            int saldoDisponible = ObtenerSaldoUsuario();
 
-            MessageBox.Show($"Gracias por tu compra. Total: ${total}");
-            PPrograma.carrito.Clear();
-            ActualizarLista();
+            if (saldoDisponible >= total)
+            {
+                // Descontar saldo en la base de datos
+                string usuario = UsuarioActivo.nombre.ToString();
+
+                using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+                {
+                    conexion.Open();
+                    string consulta = "UPDATE usuarios SET credito = credito - @total WHERE usuario = @usuario";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@total", total);
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Gracias por tu compra. Total: ${total}");
+                PPrograma.carrito.Clear();
+                ActualizarLista();
+                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}"; // Actualizar saldo en la UI
+            }
+            else
+            {
+                MessageBox.Show("Saldo insuficiente. Agrega más balance.");
+            }
+        }
+
+        private int ObtenerSaldoUsuario()
+        {
+            int saldo = 0;
+            string usuario = UsuarioActivo.nombre.ToString();
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+            {
+                conexion.Open();
+                string consulta = "SELECT credito FROM usuarios WHERE usuario = @usuario";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            saldo = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return saldo;
+        }
+
+        private void btnBalanza_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtBalanza.Text.Trim(), out int monto) && monto > 0)
+            {
+                string usuario = UsuarioActivo.nombre.ToString();
+
+                using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
+                {
+                    conexion.Open();
+                    string consulta = "UPDATE usuarios SET credito = credito + @monto WHERE usuario = @usuario";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@monto", monto);
+                        cmd.Parameters.AddWithValue("@usuario", usuario);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Saldo agregado: ${monto}");
+                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}"; // Actualizar saldo
+                txtBalanza.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Ingresa un monto válido.");
+            }
         }
     }
 }
