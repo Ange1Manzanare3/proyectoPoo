@@ -26,7 +26,7 @@ namespace Proyecto_finalPOO
             ActualizarLista();
             lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
         }
-
+        //papucambiesito
 
         private void ActualizarLista()
         {
