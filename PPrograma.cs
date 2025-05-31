@@ -18,6 +18,8 @@ namespace Proyecto_finalPOO
     {
         public static List<string> carrito = new List<string>();
 
+        public static List<string> juegosComprados = new List<string>();
+
 
         private PRegistrar formPrincipal;
         string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
@@ -27,6 +29,9 @@ namespace Proyecto_finalPOO
             //lblUsuario.Text = UsuarioActivo.nombre;
             this.Load += PProgramaAdmin_Load;
             this.formPrincipal = formPrincipal;
+
+            this.Activated += PPrograma_Activated;
+
         }
         public PPrograma()
         {
@@ -77,6 +82,8 @@ namespace Proyecto_finalPOO
                 Invoke(() => ActualizarControles(datos));
                 return;
             }
+
+            //Editar Botones de Jugar
 
             List<Label> labels = new List<Label>
     {
@@ -147,6 +154,23 @@ namespace Proyecto_finalPOO
 
         }
 
+
+
+        private void ActualizarBotonesDeJugar()
+        {
+            btn_Jugar_Loteria.Visible = PPrograma.juegosComprados.Any(j => j.Contains("Lotería"));
+            btn_Juego_preguntas.Visible = PPrograma.juegosComprados.Any(j => j.Contains("Quiz Preguntas"));
+            btn_jugar_musica.Visible = PPrograma.juegosComprados.Any(j => j.Contains("Música"));
+        }
+
+
+        private void PPrograma_Activated(object sender, EventArgs e)
+        {
+            ActualizarBotonesDeJugar();
+        }
+
+
+
         private void btn_jugar_musica_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Juego ´Quiz Cultura´ fue agregado al carrito");
@@ -155,7 +179,7 @@ namespace Proyecto_finalPOO
 
 
 
-            btn_Juego_preguntas.Visible = true;
+            //btn_Juego_preguntas.Visible = true;
 
 
 
@@ -171,7 +195,7 @@ namespace Proyecto_finalPOO
             MessageBox.Show("Juego ´Musica´ fue agregado al carrito");
 
 
-            btn_jugar_musica.Visible = true;
+            //btn_jugar_musica.Visible = true;
 
             PPrograma.carrito.Add("Música - $310");
 
@@ -202,6 +226,54 @@ namespace Proyecto_finalPOO
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_agregar_Juego4_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Juego ´Battlefield´ fue agregado al carrito");
+
+            PPrograma.carrito.Add("Batlefield - $240");
+
+
+
+            btn_Jugar_Loteria.Visible = true;
+            // nombre se usuario, nombre juego, obtener
+            string usuario = UsuarioActivo.nombre.ToString(), nombre_juego = "Battlefield";
+            lblUsuario.Text = usuario;
+            //obtenerJuego obtenerJuego = new obtenerJuego(nombre_juego, usuario);
+        }
+
+        private void btn_agregar_Juego5_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Juego ´Gta 7´ fue agregado al carrito");
+
+            PPrograma.carrito.Add("Gta 7 - $89");
+
+
+
+            btn_Jugar_Loteria.Visible = true;
+            // nombre se usuario, nombre juego, obtener
+            string usuario = UsuarioActivo.nombre.ToString(), nombre_juego = "Gta 7";
+            lblUsuario.Text = usuario;
+            //obtenerJuego obtenerJuego = new obtenerJuego(nombre_juego, usuario);
+        }
+
+        private void btn_agregar_Juego6_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Juego ´Minecraft 2´ fue agregado al carrito");
+
+            PPrograma.carrito.Add("Minecraft 2 - $89");
+
+
+
+            btn_Jugar_Loteria.Visible = true;
+            // nombre se usuario, nombre juego, obtener
+            string usuario = UsuarioActivo.nombre.ToString(), nombre_juego = "Minecraft 2";
+            lblUsuario.Text = usuario;
+            //obtenerJuego obtenerJuego = new obtenerJuego(nombre_juego, usuario);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Proyecto_finalPOO
         {
             using (OpenFileDialog opfd = new OpenFileDialog())
             {
-                string carpetaPermitida = @":\POO\Unidad 3\Proyecto_finalPOO\bin\Debug\net8.0-windows\Juegos\Portadas";
+                string carpetaPermitida = @"C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\Juegos";
 
                 opfd.InitialDirectory = carpetaPermitida;
                 opfd.Filter = "Archivos de imagen (*.jpg; *.png)|*.jpg;*.png";
@@ -37,7 +37,7 @@ namespace Proyecto_finalPOO
         {
             using (OpenFileDialog opfd = new OpenFileDialog())
             {
-                string carpetaPermitida = @"D:\POO\Unidad 3\Proyecto_finalPOO\bin\Debug\net8.0-windows\Juegos\";
+                string carpetaPermitida = @"C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\Juegos";
 
                 opfd.InitialDirectory = carpetaPermitida;
                 opfd.Filter = extension;

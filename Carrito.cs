@@ -66,6 +66,22 @@ namespace Proyecto_finalPOO
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
+
+            foreach (string juego in listJuegos.Items)
+            {
+                if (!PPrograma.juegosComprados.Contains(juego))
+                {
+                    PPrograma.juegosComprados.Add(juego);
+                }
+            }
+
+
+
+
+
+
+
+
             if (PPrograma.carrito.Count == 0)
             {
                 MessageBox.Show("Tu carrito está vacío.");
@@ -86,7 +102,6 @@ namespace Proyecto_finalPOO
 
             if (saldoDisponible >= total)
             {
-                // Descontar saldo en la base de datos
                 string usuario = UsuarioActivo.nombre.ToString();
 
                 using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
@@ -102,15 +117,28 @@ namespace Proyecto_finalPOO
                     }
                 }
 
+                //  se agregan los juegos a la lista de juegos comprados
+                foreach (string juego in listJuegos.Items)
+                {
+                    if (!PPrograma.juegosComprados.Contains(juego))
+                    {
+                        PPrograma.juegosComprados.Add(juego);
+                    }
+                }
+
                 MessageBox.Show($"Gracias por tu compra. Total: ${total}");
                 PPrograma.carrito.Clear();
                 ActualizarLista();
-                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}"; // Actualizar saldo en la UI
+                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
             }
             else
             {
                 MessageBox.Show("Saldo insuficiente. Agrega más balance.");
             }
+
+
+
+
         }
 
         private int ObtenerSaldoUsuario()
@@ -135,6 +163,7 @@ namespace Proyecto_finalPOO
                     }
                 }
             }
+
             return saldo;
         }
 
@@ -158,13 +187,17 @@ namespace Proyecto_finalPOO
                 }
 
                 MessageBox.Show($"Saldo agregado: ${monto}");
-                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}"; // Actualizar saldo
+                lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
                 txtBalanza.Clear();
             }
             else
             {
                 MessageBox.Show("Ingresa un monto válido.");
             }
+        }
+
+        private void listJuegos_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -234,6 +234,7 @@
             btn_agregar_Juego6.TabIndex = 6;
             btn_agregar_Juego6.Text = "Agregar al carrito";
             btn_agregar_Juego6.UseVisualStyleBackColor = true;
+            btn_agregar_Juego6.Click += btn_agregar_Juego6_Click;
             // 
             // button2
             // 
@@ -305,6 +306,7 @@
             btn_agregar_Juego4.TabIndex = 3;
             btn_agregar_Juego4.Text = "Agregar al carrito";
             btn_agregar_Juego4.UseVisualStyleBackColor = true;
+            btn_agregar_Juego4.Click += btn_agregar_Juego4_Click;
             // 
             // groupBox5
             // 
@@ -366,6 +368,7 @@
             btn_agregar_Juego5.TabIndex = 4;
             btn_agregar_Juego5.Text = "Agregar al carrito";
             btn_agregar_Juego5.UseVisualStyleBackColor = true;
+            btn_agregar_Juego5.Click += btn_agregar_Juego5_Click;
             // 
             // groupBox3
             // 

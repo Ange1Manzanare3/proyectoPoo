@@ -91,6 +91,7 @@
             listJuegos.Name = "listJuegos";
             listJuegos.Size = new Size(581, 104);
             listJuegos.TabIndex = 4;
+            listJuegos.SelectedIndexChanged += listJuegos_SelectedIndexChanged;
             // 
             // lblCreditos
             // 

@@ -28,12 +28,12 @@ namespace Proyecto_finalPOO
 
         }
 
-        ////public PProgramaAdmin()
-        ////{
-        ////    InitializeComponent();
-        ////    this.Shown += PProgramaAdmin_Shown;
+        public PProgramaAdmin()
+        {
+            InitializeComponent();
+            this.Shown += PProgramaAdmin_Shown;
 
-        ////}
+        }
 
         private async void PProgramaAdmin_Shown(object sender, EventArgs e)
         {

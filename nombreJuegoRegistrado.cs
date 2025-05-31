@@ -27,6 +27,10 @@ namespace Proyecto_finalPOO
             using (var conexion = new NpgsqlConnection(ruta))
             {
                 conexion.Open();
+
+
+                // Tablas de juego
+                // Select: Nombre de columna
                 string consulta = @"SELECT nombrejuego, precio, visible, imagen, ejecutable FROM pantalla WHERE id = @id";
 
                 using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
