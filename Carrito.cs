@@ -75,13 +75,6 @@ namespace Proyecto_finalPOO
                 }
             }
 
-
-
-
-
-
-
-
             if (PPrograma.carrito.Count == 0)
             {
                 MessageBox.Show("Tu carrito está vacío.");

@@ -102,3 +102,15 @@ C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Exten
 C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\sebas\source\repos\proyectoPoo\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\lenovo\Source\Repos\proyectoPoo\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
