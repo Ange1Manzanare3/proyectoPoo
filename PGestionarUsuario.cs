@@ -82,7 +82,7 @@ namespace Proyecto_finalPOO
         {
             string usuarioAntiguo = listBox1.SelectedItem.ToString().Trim();
             string nuevoUsuario = txt_Nombre.Text.Trim(), correo = txt_correo.Text.Trim(), contraseña = txt_contraseña.Text.Trim();
-            int credito = Convert.ToInt16(txt_credito.Text.Trim());
+            decimal credito = Convert.ToDecimal(txt_credito.Text.Trim());
             if (string.IsNullOrWhiteSpace(contraseña) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(txt_credito.Text))
             {
                 MessageBox.Show("Por favor, completa todos los campos.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
