@@ -14,37 +14,66 @@ namespace Proyecto_finalPOO
     //papuprueba
     public partial class Carrito : Form
     {
+        decimal total;
         private string ruta = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
         public Carrito()
         {
             InitializeComponent();
             this.Load += Carrito_Load;
-        }
+            //carroCompras.CarritoActualizado += Carrito_Actualizado;
+            carroCompras.compraActualizada += Carrito_Actualizado;
 
+        }
+        private void Carrito_Actualizado()
+        {
+            decimal saldoActualizado = ObtenerSaldoUsuario();
+            lblCreditos.Text = $"Crédito: ${saldoActualizado:F2}";
+            ActualizarLista();
+            CalcularTotal();
+        }
+        private void CalcularTotal()
+        {
+            total = 0;
+
+            foreach (var item in carroCompras.ObtenerCarrito())
+            {
+                string[] partes = item.Split('$');
+
+                if (partes.Length == 2)
+                {
+                    string precioTexto = partes[1].Trim();
+
+                    if (decimal.TryParse(precioTexto, out decimal precio))
+                    {
+                        total += precio;
+                    }
+                }
+            }
+            lblTotal.Text = $"Total: ${total:F2}";
+        }
         private void Carrito_Load(object sender, EventArgs e)
         {
             ActualizarLista();
             lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
+            carroCompras.NotificarCompraActualizada();
         }
         //papucambiesito
 
-        private void ActualizarLista()
+        public void ActualizarLista()
         {
             listJuegos.Items.Clear();
-
-            foreach (string juego in PPrograma.carrito)
+            foreach (var item in carroCompras.ObtenerCarrito())
             {
-                listJuegos.Items.Add(juego);
+                listJuegos.Items.Add(item);
             }
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            int indice = listJuegos.SelectedIndex;
-
-            if (indice >= 0)
+            if (listJuegos.SelectedItem != null)
             {
-                PPrograma.carrito.RemoveAt(indice);
+                string juego = listJuegos.SelectedItem.ToString();
+                carroCompras.EliminarJuego(juego);
                 ActualizarLista();
             }
             else
@@ -59,68 +88,25 @@ namespace Proyecto_finalPOO
 
             if (result == DialogResult.Yes)
             {
-                PPrograma.carrito.Clear();
+                carroCompras.VaciarJuegos();
                 ActualizarLista();
             }
         }
 
         private void btnComprar_Click(object sender, EventArgs e)
         {
-
-            foreach (string juego in listJuegos.Items)
-            {
-                if (!PPrograma.juegosComprados.Contains(juego))
-                {
-                    PPrograma.juegosComprados.Add(juego);
-                }
-            }
-
-            if (PPrograma.carrito.Count == 0)
+            if (carroCompras.ObtenerCarrito().Count == 0)
             {
                 MessageBox.Show("Tu carrito está vacío.");
                 return;
             }
 
-            int total = 0;
-
-            foreach (string item in PPrograma.carrito)
-            {
-                string[] partes = item.Split('$');
-                if (partes.Length == 2 && int.TryParse(partes[1], out int precio))
-                {
-                    total += precio;
-                }
-            }
-            int saldoDisponible = ObtenerSaldoUsuario();
+            decimal saldoDisponible = ObtenerSaldoUsuario();
 
             if (saldoDisponible >= total)
             {
-                string usuario = UsuarioActivo.nombre.ToString();
-
-                using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
-                {
-                    conexion.Open();
-                    string consulta = "UPDATE usuarios SET credito = credito - @total WHERE usuario = @usuario";
-
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(consulta, conexion))
-                    {
-                        cmd.Parameters.AddWithValue("@total", total);
-                        cmd.Parameters.AddWithValue("@usuario", usuario);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                //  se agregan los juegos a la lista de juegos comprados
-                foreach (string juego in listJuegos.Items)
-                {
-                    if (!PPrograma.juegosComprados.Contains(juego))
-                    {
-                        PPrograma.juegosComprados.Add(juego);
-                    }
-                }
-
+                carroCompras.ComprarJuego(total, ruta, saldoDisponible-total);
                 MessageBox.Show($"Gracias por tu compra. Total: ${total}");
-                PPrograma.carrito.Clear();
                 ActualizarLista();
                 lblCreditos.Text = $"Saldo: ${ObtenerSaldoUsuario()}";
             }
@@ -128,15 +114,11 @@ namespace Proyecto_finalPOO
             {
                 MessageBox.Show("Saldo insuficiente. Agrega más balance.");
             }
-
-
-
-
         }
 
-        private int ObtenerSaldoUsuario()
+        public decimal ObtenerSaldoUsuario()
         {
-            int saldo = 0;
+            decimal saldo = 0;
             string usuario = UsuarioActivo.nombre.ToString();
 
             using (NpgsqlConnection conexion = new NpgsqlConnection(ruta))
@@ -151,17 +133,17 @@ namespace Proyecto_finalPOO
                     {
                         if (reader.Read())
                         {
-                            saldo = reader.GetInt32(0);
+                            saldo = reader.GetDecimal(0);
                         }
                     }
                 }
             }
-
             return saldo;
         }
 
         private void btnBalanza_Click(object sender, EventArgs e)
         {
+            carroCompras.NotificarCompraActualizada();
             if (int.TryParse(txtBalanza.Text.Trim(), out int monto) && monto > 0)
             {
                 string usuario = UsuarioActivo.nombre.ToString();
@@ -191,6 +173,12 @@ namespace Proyecto_finalPOO
 
         private void listJuegos_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void Carrito_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();    
         }
     }
 }

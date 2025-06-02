@@ -37,6 +37,7 @@
             txtBalanza = new TextBox();
             btnBalanza = new Button();
             label3 = new Label();
+            lblTotal = new Label();
             SuspendLayout();
             // 
             // label1
@@ -54,7 +55,7 @@
             // btnQuitar
             // 
             btnQuitar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnQuitar.Location = new Point(69, 291);
+            btnQuitar.Location = new Point(75, 315);
             btnQuitar.Name = "btnQuitar";
             btnQuitar.Size = new Size(133, 56);
             btnQuitar.TabIndex = 1;
@@ -65,7 +66,7 @@
             // btnVaciar
             // 
             btnVaciar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnVaciar.Location = new Point(270, 291);
+            btnVaciar.Location = new Point(276, 315);
             btnVaciar.Name = "btnVaciar";
             btnVaciar.Size = new Size(133, 56);
             btnVaciar.TabIndex = 2;
@@ -76,7 +77,7 @@
             // btnComprar
             // 
             btnComprar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnComprar.Location = new Point(469, 291);
+            btnComprar.Location = new Point(475, 315);
             btnComprar.Name = "btnComprar";
             btnComprar.Size = new Size(133, 56);
             btnComprar.TabIndex = 3;
@@ -96,7 +97,7 @@
             // lblCreditos
             // 
             lblCreditos.AutoSize = true;
-            lblCreditos.Location = new Point(558, 49);
+            lblCreditos.Location = new Point(484, 49);
             lblCreditos.Name = "lblCreditos";
             lblCreditos.Size = new Size(50, 20);
             lblCreditos.TabIndex = 5;
@@ -130,12 +131,21 @@
             label3.TabIndex = 8;
             label3.Text = "Balanza";
             // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Location = new Point(475, 250);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(0, 20);
+            lblTotal.TabIndex = 9;
+            // 
             // Carrito
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(913, 451);
+            Controls.Add(lblTotal);
             Controls.Add(label3);
             Controls.Add(btnBalanza);
             Controls.Add(txtBalanza);
@@ -147,6 +157,7 @@
             Controls.Add(label1);
             Name = "Carrito";
             Text = "Carrito";
+            FormClosing += Carrito_FormClosing;
             Load += Carrito_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -163,5 +174,6 @@
         private TextBox txtBalanza;
         private Button btnBalanza;
         private Label label3;
+        private Label lblTotal;
     }
 }
