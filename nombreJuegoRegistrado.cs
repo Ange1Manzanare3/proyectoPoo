@@ -12,7 +12,7 @@ namespace Proyecto_finalPOO
     {
         protected string nombreJuego = string.Empty, ruta = string.Empty, rutaImagen = string.Empty, rutaEjecucion = string.Empty;
         protected int id, precio;
-        protected bool visible;
+        protected bool visible, carritoVisible;
         public nombreJuegoRegistrado(string nueva_ruta)
         {
             this.ruta = nueva_ruta;
@@ -22,7 +22,7 @@ namespace Proyecto_finalPOO
         //    this.ruta = nueva_ruta;
         //    this.id = nueva_id;
         //}
-        public void obtenerDatosJuego(int id)
+        public void obtenerDatosJuego(int id, string usuario)
         {
             using (var conexion = new NpgsqlConnection(ruta))
             {
@@ -54,11 +54,30 @@ namespace Proyecto_finalPOO
                         }
                     }
                 }
+                string nombreColumna = $"juego{id}";
+                string consulta1 = $"SELECT {nombreColumna} FROM juegos WHERE usuario = @usuario";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(consulta1, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(reader.GetOrdinal(nombreColumna)))
+                                carritoVisible = Convert.ToBoolean(reader[nombreColumna]);
+                            else
+                                carritoVisible = false; 
+                        }
+                    }
+                }
             }
         }
 
         public string obtener_nombreJuego() { return nombreJuego; }
         public bool obtener_Juegovisible() { return visible; }
+        public bool obtener_carritoVisible() { return carritoVisible; }
         public int obtener_PrecioJuego() { return precio; }
         public string obtener_rutaImagen() { return rutaImagen; }
         public string obtener_rutaEjecucion() { return rutaEjecucion; }
