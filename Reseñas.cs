@@ -14,7 +14,10 @@ namespace Proyecto_finalPOO
     {
         public int idJuego;
         public string usuarioActual;
-       
+        public int idJuegoActual;
+
+
+
 
         public string conexionDB = "Host=caboose.proxy.rlwy.net;Port=49656;Username=postgres;Password=xwWxhVadXdbkkiCQHtQlxtNxTQyhPVGp;Database=railway;SSL Mode=Require;Trust Server Certificate=true";
 
@@ -23,7 +26,7 @@ namespace Proyecto_finalPOO
             InitializeComponent();
 
 
-            this.idJuego = idJuego;
+            this.idJuegoActual = idJuego;
             this.usuarioActual = usuario;
             this.conexionDB = conexion;
 
@@ -31,8 +34,40 @@ namespace Proyecto_finalPOO
 
         private void btnPublicar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ejecutando CargarReseñas()"); 
-            lstReseñas.Items.Clear(); 
+            MessageBox.Show($"Publicando reseña - idJuegoActual: {idJuegoActual}");
+
+            try
+            {
+                using (var conexion = new Npgsql.NpgsqlConnection(conexionDB))
+                {
+                    conexion.Open();
+                    string consultaInsert = "INSERT INTO reseñas (usuario, comentario, calificacion, juego) VALUES (@usuario, @comentario, @calificacion, @idJuego)";
+
+                    using (var cmd = new Npgsql.NpgsqlCommand(consultaInsert, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@usuario", usuarioActual);
+                        cmd.Parameters.AddWithValue("@comentario", txtReseña.Text); // Capturamos el comentario desde el TextBox
+                        cmd.Parameters.AddWithValue("@calificacion", Convert.ToInt32(numCalificacion.Value)); // Capturamos la calificación desde el NumericUpDown
+                        cmd.Parameters.AddWithValue("@idJuego", idJuegoActual);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Reseña publicada correctamente.");
+                    }
+                }
+
+                CargarReseñas(); // Recargamos para ver la nueva reseña
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al publicar reseña: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+
+        private void CargarReseñas()
+        {
+            MessageBox.Show($"Ejecutando CargarReseñas() - idJuegoActual: {idJuegoActual}");
+            lstReseñas.Items.Clear();
 
             try
             {
@@ -43,7 +78,7 @@ namespace Proyecto_finalPOO
 
                     using (var cmd = new Npgsql.NpgsqlCommand(consulta, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@idJuego", idJuego.ToString());
+                        cmd.Parameters.AddWithValue("@idJuego", idJuegoActual.ToString());
 
                         using (var reader = cmd.ExecuteReader())
                         {
@@ -58,12 +93,13 @@ namespace Proyecto_finalPOO
                             {
                                 string user = reader["usuario"].ToString();
                                 string comentario = reader["comentario"].ToString();
+
+                                // Corregimos la lectura de calificación
                                 string calificacionTexto = reader["calificacion"].ToString();
-                                int calificacion = int.TryParse(calificacionTexto, out int resultado) ? resultado : 0; //Convertir texto a numero
+                                int calificacion = int.TryParse(calificacionTexto, out int resultado) ? resultado : 0;
 
                                 Console.WriteLine($"Usuario: {user}, Calificación: {calificacion}, Comentario: {comentario}");
-
-                                lstReseñas.Items.Add($"⭐ {calificacion}/5 - {user}: {comentario}");
+                                lstReseñas.Items.Add($"⭐ {calificacion}/10 - {user}: {comentario}");
                             }
 
                             lstReseñas.Refresh();
@@ -76,58 +112,6 @@ namespace Proyecto_finalPOO
                 MessageBox.Show($"Error al cargar reseñas: {ex.Message}\n{ex.StackTrace}");
             }
         }
-
-        private void CargarReseñas()
-        {
-            MessageBox.Show("Ejecutando CargarReseñas()"); // Confirmar que se está ejecutando
-            lstReseñas.Items.Clear(); // Limpia la lista antes de agregar nuevas reseñas
-
-            try
-            {
-                using (var conexion = new Npgsql.NpgsqlConnection(conexionDB))
-                {
-                    conexion.Open();
-                    string consulta = "SELECT usuario, comentario, calificacion FROM reseñas WHERE juego = @idJuego ORDER BY id DESC";
-
-                    using (var cmd = new Npgsql.NpgsqlCommand(consulta, conexion))
-                    {
-                        // Convertimos idJuego a string para evitar el error de tipo
-                        cmd.Parameters.AddWithValue("@idJuego", idJuego.ToString());
-
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            if (!reader.HasRows)
-                            {
-                                MessageBox.Show("No hay reseñas en la base de datos.");
-                                lstReseñas.Items.Add("No hay reseñas para este juego aún."); // Muestra mensaje en el ListBox
-                                return;
-                            }
-
-                            while (reader.Read())
-                            {
-                                string user = reader["usuario"].ToString();
-                                string comentario = reader["comentario"].ToString();
-                                int calificacion = reader.GetInt32(reader.GetOrdinal("calificacion"));
-
-                                // Muestra los datos en un MessageBox para verificar si están llegando
-                                Console.WriteLine($"Usuario: {user}, Calificación: {calificacion}, Comentario: {comentario}");
-
-                                // Agrega la reseña al ListBox de forma segura
-                                lstReseñas.Items.Add($"⭐ {calificacion}/5 - {user}: {comentario}");
-                            }
-
-                            // Refresca el ListBox después de agregar todas las reseñas
-                            lstReseñas.Refresh();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar reseñas: {ex.Message}\n{ex.StackTrace}");
-            }
-        }
-
 
 
         private void Reseñas_Load(object sender, EventArgs e)

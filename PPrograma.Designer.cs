@@ -69,8 +69,6 @@
             label3 = new Label();
             pictureBox3 = new PictureBox();
             groupBox1 = new GroupBox();
-            button3 = new Button();
-            button2 = new Button();
             reseñasloteria = new Button();
             btn_regresar_Juego1 = new Button();
             label7 = new Label();
@@ -572,8 +570,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(0, 64, 64);
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(reseñasloteria);
             groupBox1.Controls.Add(btn_regresar_Juego1);
             groupBox1.Controls.Add(label7);
@@ -586,24 +582,6 @@
             groupBox1.Size = new Size(360, 400);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(122, 194);
-            button3.Name = "button3";
-            button3.Size = new Size(133, 29);
-            button3.TabIndex = 17;
-            button3.Text = "Reseñas";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(114, 186);
-            button2.Name = "button2";
-            button2.Size = new Size(133, 29);
-            button2.TabIndex = 16;
-            button2.Text = "Reseñas";
-            button2.UseVisualStyleBackColor = true;
             // 
             // reseñasloteria
             // 
@@ -816,8 +794,6 @@
         private Button reseñasbattlefield;
         private Button reseñasgta;
         private Button reseñasquiz;
-        private Button button3;
-        private Button button2;
         private Button reseñasmusica;
     }
 }
