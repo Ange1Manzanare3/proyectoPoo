@@ -39,6 +39,7 @@
             panel1 = new Panel();
             BtnVerCarrito = new Button();
             groupBox6 = new GroupBox();
+            reseñasMineraft = new Button();
             btn_regresar_Juego6 = new Button();
             label12 = new Label();
             label6 = new Label();
@@ -46,6 +47,7 @@
             btn_agregar_Juego6 = new Button();
             btn_jugar6 = new Button();
             groupBox4 = new GroupBox();
+            reseñasbattlefield = new Button();
             btn_regresar_Juego4 = new Button();
             label10 = new Label();
             label4 = new Label();
@@ -53,6 +55,7 @@
             btn_jugar4 = new Button();
             btn_agregar_Juego4 = new Button();
             groupBox5 = new GroupBox();
+            reseñasgta = new Button();
             btn_regresar_Juego5 = new Button();
             label11 = new Label();
             label5 = new Label();
@@ -60,16 +63,21 @@
             btn_jugar5 = new Button();
             btn_agregar_Juego5 = new Button();
             groupBox3 = new GroupBox();
+            reseñasquiz = new Button();
             btn_regresar_Juego3 = new Button();
             label8 = new Label();
             label3 = new Label();
             pictureBox3 = new PictureBox();
             groupBox1 = new GroupBox();
+            button3 = new Button();
+            button2 = new Button();
+            reseñasloteria = new Button();
             btn_regresar_Juego1 = new Button();
             label7 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             groupBox2 = new GroupBox();
+            reseñasmusica = new Button();
             btn_regresar_Juego2 = new Button();
             label2 = new Label();
             label9 = new Label();
@@ -206,6 +214,7 @@
             // groupBox6
             // 
             groupBox6.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox6.Controls.Add(reseñasMineraft);
             groupBox6.Controls.Add(btn_regresar_Juego6);
             groupBox6.Controls.Add(label12);
             groupBox6.Controls.Add(label6);
@@ -217,6 +226,16 @@
             groupBox6.Size = new Size(360, 400);
             groupBox6.TabIndex = 12;
             groupBox6.TabStop = false;
+            // 
+            // reseñasMineraft
+            // 
+            reseñasMineraft.Location = new Point(118, 365);
+            reseñasMineraft.Name = "reseñasMineraft";
+            reseñasMineraft.Size = new Size(133, 29);
+            reseñasMineraft.TabIndex = 21;
+            reseñasMineraft.Text = "Reseñas";
+            reseñasMineraft.UseVisualStyleBackColor = true;
+            reseñasMineraft.Click += reseñasMineraft_Click;
             // 
             // btn_regresar_Juego6
             // 
@@ -291,6 +310,7 @@
             // groupBox4
             // 
             groupBox4.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox4.Controls.Add(reseñasbattlefield);
             groupBox4.Controls.Add(btn_regresar_Juego4);
             groupBox4.Controls.Add(label10);
             groupBox4.Controls.Add(label4);
@@ -302,6 +322,16 @@
             groupBox4.Size = new Size(360, 400);
             groupBox4.TabIndex = 10;
             groupBox4.TabStop = false;
+            // 
+            // reseñasbattlefield
+            // 
+            reseñasbattlefield.Location = new Point(108, 365);
+            reseñasbattlefield.Name = "reseñasbattlefield";
+            reseñasbattlefield.Size = new Size(133, 29);
+            reseñasbattlefield.TabIndex = 19;
+            reseñasbattlefield.Text = "Reseñas";
+            reseñasbattlefield.UseVisualStyleBackColor = true;
+            reseñasbattlefield.Click += reseñasbattlefield_Click;
             // 
             // btn_regresar_Juego4
             // 
@@ -376,6 +406,7 @@
             // groupBox5
             // 
             groupBox5.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox5.Controls.Add(reseñasgta);
             groupBox5.Controls.Add(btn_regresar_Juego5);
             groupBox5.Controls.Add(label11);
             groupBox5.Controls.Add(label5);
@@ -387,6 +418,16 @@
             groupBox5.Size = new Size(360, 400);
             groupBox5.TabIndex = 11;
             groupBox5.TabStop = false;
+            // 
+            // reseñasgta
+            // 
+            reseñasgta.Location = new Point(114, 365);
+            reseñasgta.Name = "reseñasgta";
+            reseñasgta.Size = new Size(133, 29);
+            reseñasgta.TabIndex = 20;
+            reseñasgta.Text = "Reseñas";
+            reseñasgta.UseVisualStyleBackColor = true;
+            reseñasgta.Click += reseñasgta_Click;
             // 
             // btn_regresar_Juego5
             // 
@@ -461,6 +502,7 @@
             // groupBox3
             // 
             groupBox3.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox3.Controls.Add(reseñasquiz);
             groupBox3.Controls.Add(btn_regresar_Juego3);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label3);
@@ -472,6 +514,16 @@
             groupBox3.Size = new Size(360, 400);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
+            // 
+            // reseñasquiz
+            // 
+            reseñasquiz.Location = new Point(118, 365);
+            reseñasquiz.Name = "reseñasquiz";
+            reseñasquiz.Size = new Size(133, 29);
+            reseñasquiz.TabIndex = 18;
+            reseñasquiz.Text = "Reseñas";
+            reseñasquiz.UseVisualStyleBackColor = true;
+            reseñasquiz.Click += reseñasquiz_Click;
             // 
             // btn_regresar_Juego3
             // 
@@ -520,6 +572,9 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(reseñasloteria);
             groupBox1.Controls.Add(btn_regresar_Juego1);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label1);
@@ -531,6 +586,34 @@
             groupBox1.Size = new Size(360, 400);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(122, 194);
+            button3.Name = "button3";
+            button3.Size = new Size(133, 29);
+            button3.TabIndex = 17;
+            button3.Text = "Reseñas";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(114, 186);
+            button2.Name = "button2";
+            button2.Size = new Size(133, 29);
+            button2.TabIndex = 16;
+            button2.Text = "Reseñas";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // reseñasloteria
+            // 
+            reseñasloteria.Location = new Point(108, 365);
+            reseñasloteria.Name = "reseñasloteria";
+            reseñasloteria.Size = new Size(133, 29);
+            reseñasloteria.TabIndex = 13;
+            reseñasloteria.Text = "Reseñas";
+            reseñasloteria.UseVisualStyleBackColor = true;
+            reseñasloteria.Click += reseñasloteria_Click;
             // 
             // btn_regresar_Juego1
             // 
@@ -579,6 +662,7 @@
             // groupBox2
             // 
             groupBox2.BackColor = Color.FromArgb(0, 64, 64);
+            groupBox2.Controls.Add(reseñasmusica);
             groupBox2.Controls.Add(btn_regresar_Juego2);
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label9);
@@ -590,6 +674,16 @@
             groupBox2.Size = new Size(360, 400);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
+            // 
+            // reseñasmusica
+            // 
+            reseñasmusica.Location = new Point(114, 365);
+            reseñasmusica.Name = "reseñasmusica";
+            reseñasmusica.Size = new Size(133, 29);
+            reseñasmusica.TabIndex = 17;
+            reseñasmusica.Text = "Reseñas";
+            reseñasmusica.UseVisualStyleBackColor = true;
+            reseñasmusica.Click += reseñasmusica_Click;
             // 
             // btn_regresar_Juego2
             // 
@@ -717,5 +811,13 @@
         private Button btn_regresar_Juego3;
         private Button btn_regresar_Juego1;
         private Button btn_regresar_Juego2;
+        private Button reseñasloteria;
+        private Button reseñasMineraft;
+        private Button reseñasbattlefield;
+        private Button reseñasgta;
+        private Button reseñasquiz;
+        private Button button3;
+        private Button button2;
+        private Button reseñasmusica;
     }
 }

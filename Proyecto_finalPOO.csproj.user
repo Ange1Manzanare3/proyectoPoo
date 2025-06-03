@@ -25,5 +25,8 @@
     <Compile Update="PRegistrarAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Reseñas.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

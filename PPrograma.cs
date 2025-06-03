@@ -500,5 +500,71 @@ namespace Proyecto_finalPOO
                 MessageBox.Show("Este juego no está disponible para tu usuario.");
             }
         }
+
+        private void reseñasloteria_Click(object sender, EventArgs e)
+        {
+            int idJuego = 1;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+
+        }
+
+        private void reseñasmusica_Click(object sender, EventArgs e)
+        {
+            int idJuego = 2;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+        }
+
+        private void reseñasquiz_Click(object sender, EventArgs e)
+        {
+            int idJuego = 3;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reseñasbattlefield_Click(object sender, EventArgs e)
+        {
+            int idJuego = 4;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+        }
+
+        private void reseñasgta_Click(object sender, EventArgs e)
+        {
+            int idJuego = 5;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+        }
+
+        private void reseñasMineraft_Click(object sender, EventArgs e)
+        {
+            int idJuego = 6;
+            string usuarioActual = UsuarioActivo.nombre;
+
+            Reseñas formularioReseñas = new Reseñas(idJuego, usuarioActual, ruta);
+            formularioReseñas.ShowDialog();
+
+        }
     }
 }
